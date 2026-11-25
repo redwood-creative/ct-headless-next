@@ -16,6 +16,7 @@ export default function Meta() {
 				sizes="180x180"
 				href="/favicon/apple-touch-icon.png"
 			/>
+			<link rel="icon" type="image/svg+xml" href="/favicon/icon.svg" />
 			<link
 				rel="icon"
 				type="image/png"
@@ -32,10 +33,10 @@ export default function Meta() {
 			<link
 				rel="mask-icon"
 				href="/favicon/safari-pinned-tab.svg"
-				color="#000000"
+				color="#30313d"
 			/>
 			<link rel="shortcut icon" href="/favicon/favicon.ico" />
-			<meta name="msapplication-TileColor" content="#000000" />
+			<meta name="msapplication-TileColor" content="#30313d" />
 			<meta
 				name="msapplication-config"
 				content="/favicon/browserconfig.xml"
