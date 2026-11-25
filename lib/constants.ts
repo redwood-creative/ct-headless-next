@@ -10,8 +10,6 @@ import { Inter, Bricolage_Grotesque } from "next/font/google";
 // 	variable: "--font-heading",
 // });
 
-export const EXAMPLE_PATH = "cms-wordpress";
-export const CMS_NAME = "WordPress";
 export const SITE_NAME = "ClickTailors"
 export const SITE_URL = "https://clicktailors.com"
 export const COMPANY_NAME = "Redwood Creative, LLC"
@@ -23,6 +21,5 @@ export const INSTAGRAM = "https://www.instagram.com/clicktailorsofficial/"
 export const FACEBOOK = "https://www.facebook.com/clicktailorsofficial"
 export const MEDIUM = "https://medium.com/@clicktailors"
 export const TWITTER = "https://x.com/CTailors47419"
-export const CMS_URL = "https://wordpress.org";
 export const CTA_LINK = ""
 export const CTA_TEXT = ""

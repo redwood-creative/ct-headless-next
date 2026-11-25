@@ -2,8 +2,9 @@ import PostPreview from "./PostPreview";
 import Container from "../ui/Container";
 import Section from "../ui/Section";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import type { PostMeta } from "../../lib/blog";
 
-export default function BlogCarousel({ posts }: { posts: any[] }) {
+export default function BlogCarousel({ posts }: { posts: PostMeta[] }) {
 	return (
 		<Section>
 			<Container>
@@ -13,19 +14,12 @@ export default function BlogCarousel({ posts }: { posts: any[] }) {
 					</h2>
 
 					<div className="carousel carousel-center w-full gap-4 md:gap-8 py-4 overflow-x-auto">
-						{posts.map(({ node }) => (
+						{posts.map((post) => (
 							<div
-								key={node.slug}
+								key={post.slug}
 								className="carousel-item w-[280px] md:w-[350px]"
 							>
-								<PostPreview
-									title={node.title}
-									coverImage={node.featuredImage}
-									date={node.date}
-									author={node.author}
-									slug={node.slug}
-									excerpt={node.excerpt}
-								/>
+								<PostPreview post={post} />
 							</div>
 						))}
 					</div>

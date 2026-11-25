@@ -1,37 +1,22 @@
 import Image from "next/image";
+import type { Author } from "../../../lib/blog";
 
-export default function Avatar({
-	author,
-}: {
-	author?: {
-		node: {
-			firstName?: string;
-			lastName?: string;
-			name?: string;
-			avatar?: { url: string };
-		};
-	};
-}) {
-	if (!author?.node?.avatar) return null;
-
-	const isAuthorHaveFullName = author.node.firstName && author.node.lastName;
-	const name = isAuthorHaveFullName
-		? `${author.node.firstName} ${author.node.lastName}`
-		: author.node.name || null;
+export default function Avatar({ author }: { author?: Author }) {
+	if (!author?.avatar) return null;
 
 	return (
 		<div className="flex items-center">
 			<div className="w-10 h-10 relative mr-4">
 				<Image
-					src={author.node.avatar.url}
+					src={author.avatar}
 					width={48}
 					height={48}
 					className="rounded-full"
-					alt={name || "Avatar"}
+					alt={author.name || "Avatar"}
 					priority
 				/>
 			</div>
-			<div className="text-lg font-bold">{name}</div>
+			<div className="text-lg font-bold">{author.name}</div>
 		</div>
 	);
 }

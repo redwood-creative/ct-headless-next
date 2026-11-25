@@ -5,8 +5,7 @@ import { GetStaticProps } from "next";
 import Home from "./Home";
 import { BlurbTwoByTwoGridContent } from "../components/sections/marketing/BlurbTwoByTwoGrid";
 import { MarketingSplitContent } from "../components/sections/marketing/MarketingSplit";
-import { createCMSProvider } from "../lib/cms/cms-factory";
-import { cmsConfig } from "../lib/config";
+import { getAllPosts, type PostMeta } from "../lib/blog";
 
 const heroContent = {
 	header: "Your Ideas.",
@@ -106,45 +105,19 @@ const splitContent: MarketingSplitContent = {
 	// buttonLink: "/contact",
 };
 
-export default function Index({
-	allPosts,
-	preview = false,
-}: {
-	allPosts: any;
-	preview: boolean;
-}) {
+export default function Index({ recentPosts }: { recentPosts: PostMeta[] }) {
 	return (
 		<Home
-			heroContent={heroContent || {}}
-			gridContent={gridContent || {}}
-			splitContent={splitContent || {}}
-			allPosts={allPosts || { edges: [] }}
-			preview={preview || false}
+			heroContent={heroContent}
+			gridContent={gridContent}
+			splitContent={splitContent}
+			recentPosts={recentPosts}
 		/>
 	);
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-	try {
-		const page = 1;
-		const cms = createCMSProvider(cmsConfig.type);
-		const allPosts = await cms.getAllPostsForHome(preview, page);
-
-		return {
-			props: {
-				allPosts,
-				preview,
-			},
-			revalidate: 10,
-		};
-	} catch (error) {
-		console.error("Error in getStaticProps:", error);
-		return {
-			props: {
-				allPosts: { edges: [] },
-				preview: false,
-			},
-			revalidate: 10,
-		};
-	}
+export const getStaticProps: GetStaticProps = async () => {
+	return {
+		props: { recentPosts: getAllPosts().slice(0, 6) },
+	};
 };

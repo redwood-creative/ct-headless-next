@@ -1,19 +1,17 @@
-import { createCMSProvider } from "../lib/cms/cms-factory";
-import { cmsConfig } from "../lib/config";
 import { Metadata } from "next";
 import Link from "next/link";
 import MoreStories from "../components/blog/MoreStories";
 import Container from "../components/ui/Container";
 import Section from "../components/ui/Section";
+import { SITE_NAME } from "../lib/constants";
+import { getAllPosts } from "../lib/blog";
 
 export const metadata: Metadata = {
-	title: `Page Not Found | ${cmsConfig.siteName}`,
+	title: `Page Not Found | ${SITE_NAME}`,
 };
 
-export default async function NotFound() {
-	const cms = createCMSProvider(cmsConfig.type);
-	const posts = await cms.getAllPostsForHome(false, 1, 4);
-	const morePosts = posts?.edges?.slice(0, 4) || [];
+export default function NotFound() {
+	const morePosts = getAllPosts().slice(0, 4);
 
 	return (
 		<>

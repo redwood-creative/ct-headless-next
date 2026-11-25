@@ -22,11 +22,8 @@ export default function PostBody({ content }: { content: string }) {
 						"prose-pre:p-4 prose-pre:text-sm prose-pre:leading-tight",
 						"prose-pre:border prose-pre:border-gray-400 prose-pre:bg-gray-100",
 						"prose-img:rounded-xl prose-img:my-2",
-						"[&_.wp-block-button]:btn [&_.wp-block-button]:btn-primary",
-						"[&_.wp-block-button_a]:text-primary-content",
-						"[&_.wp-block-button__link]:text-primary-content",
-						"[&_.wp-block-image]:rounded-xl",
-						"[&_.wp-block-video_video]:rounded-xl"
+						"prose-video:rounded-xl prose-video:w-full",
+						"prose-table:block prose-table:overflow-x-auto"
 					)}
 					dangerouslySetInnerHTML={{ __html: content }}
 				/>

@@ -1,4 +1,3 @@
-import Alert from "./Alert";
 import Copyright from "./Copyright";
 import Credits from "./Credits";
 import Date from "./Date";
@@ -13,4 +12,4 @@ import Date from "./Date";
 // import Pricing from "./Pricing";
 // import Testimonials from "./Testimonials";
 
-module.exports = { Alert, Copyright, Credits, Date };
+module.exports = { Copyright, Credits, Date };
