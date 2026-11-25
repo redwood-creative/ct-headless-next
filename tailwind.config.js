@@ -11,6 +11,9 @@ module.exports = {
 	content: [
 		"./pages/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx}",
+		"./app/**/*.{js,ts,jsx,tsx}",
+		// Markdown posts/pages can use utility classes in raw HTML (e.g. CTA buttons)
+		"./content/**/*.md",
 		"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 		"./node_modules/@primer/react-brand/dist/**/*.{js,ts,jsx,tsx}",
 	],

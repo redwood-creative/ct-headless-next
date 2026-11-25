@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import Script from "next/script";
-import { CMS_NAME, SITE_DESCRIPTION } from "../../../lib/constants";
+import { SITE_DESCRIPTION } from "../../../lib/constants";
 import { usePathname } from "next/navigation";
 
 export default function Meta() {
